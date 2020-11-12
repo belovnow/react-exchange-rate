@@ -1,17 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import ValueService from './service/value-service';
+
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class ValuteValue extends Component {
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  valueService = new ValueService();
+
+  state = {
+    valuteValue: null,
+    valuteCharCode: null
+  }
+
+  componentDidMount() {
+    this.valueService.getResource('https://www.cbr-xml-daily.ru/daily_json.js')
+      .then((body) => {
+        console.log(body);
+        this.setState({
+          valuteValue: body.Valute.USD.Value,
+          valuteCharCode: body.Valute.USD.CharCode
+        }) 
+      }
+      )
+  }
+
+  render() {
+
+    const { valuteValue, valuteCharCode } = this.state;
+
+    return (
+      <div className="valute-view">
+        <h4>1 Рубль равен:</h4>
+        <h1>
+        {valuteValue}
+        </h1>
+        <h2>{valuteCharCode}</h2>
+      </div>
+    );
+  }
+
+}
+
+ReactDOM.render(<ValuteValue />,
+  document.getElementById('root'));
+

@@ -1,20 +1,5 @@
 body {
-  background-color: #f4f4f2;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.valute-view {
-  border: 1px solid rgba(0,0,0,0.02);
-  padding: 1rem;
-  text-align: center;
-  background-color: #e8e8e8;
-  margin: 6rem auto 0 auto;
-  color: #495464;
-  max-width: 200px;
-  border-radius: 10px
-}
-
-.valute-view:hover {
-  background-color: #bbbfca;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 0;
 }

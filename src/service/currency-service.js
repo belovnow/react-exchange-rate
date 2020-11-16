@@ -52,7 +52,8 @@ export default class СurrencyService {
             id: currency.ID,
             value: currency.Value.toFixed(2),
             nominal: currency.Nominal,
-            charCode: currency.CharCode
+            charCode: currency.CharCode,
+            name: currency.Name
         }
     }
     

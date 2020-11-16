@@ -1,11 +1,27 @@
-button {
-    padding: 0.5rem;
-    margin: 0.3rem;
-    background-color: #f4f4f2;
-    border: 0.05rem solid rgba(0,0,0,0.02);
-    border-radius: 5px;
-  }
+.currency-button {
+background-color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-shadow: 2px 5px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333333;
+  transition: box-shadow, background-color, 0.3s ease-in-out;
+  transition: color, 0.3s ease-in-out;
+  /* transition: color 0.2s ease-in; */
+  cursor: pointer;
+}
 
-  button:hover {
-    background-color: #bbbfca;
-  }
+.currency-button:hover {
+    box-shadow: 2px 5px 20px rgba(0,0,0,0.3);
+    background-color: #f4abc4;
+    color: white;
+}
+
+.button-row {
+    padding: 0.5rem;
+    
+}

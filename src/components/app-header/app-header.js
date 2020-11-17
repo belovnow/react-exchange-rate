@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import CurrencyService from '../../service/currency-service';
+import ChartBlock from '../chart-block';
 import CurrencyInfo from '../currency-info';
 
 import './app-header.css';
@@ -11,16 +12,26 @@ export default class AppHeader extends Component {
 
   state = {
     currentСurrency: null,
-    currency: {}
+    currency: {},
+    data: {
+      labels: [],
+      datasets: [{        
+        data: [],
+        borderColor: "#f4abc4",
+        fill: false,
+      }]
+    }
   }
 
   componentDidMount() {
     this.updateCurrency();
+    this.updateDatabase();
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.currentСurrency !== prevProps.currentСurrency) {
-    this.updateCurrency();
+    if (this.props.currentСurrency !== prevProps.currentСurrency) {
+      this.updateCurrency();
+      this.updateDatabase();
     }
   }
 
@@ -37,12 +48,36 @@ export default class AppHeader extends Component {
       });
   }
 
+  updateDatabase() {
+    const { currentСurrency } = this.props;
+
+    if (!currentСurrency) {
+      return;
+    }
+
+    this.currencyService.getCurrencyStatistic(currentСurrency)
+      .then(
+        (body) => {
+          this.setState({
+            data: {
+              labels: body.labels,
+              datasets: [{
+                data: body.data,
+              }]
+            }
+          })
+        })
+  }
+
   render() {
 
-    const { currency } = this.state;
+    const { data, currency } = this.state;
 
     return (
-      <CurrencyInfo currency={currency}/>
+      <div className="row">
+        <CurrencyInfo currency={currency} />
+        <ChartBlock data={data} />
+      </div>
     );
   }
 }

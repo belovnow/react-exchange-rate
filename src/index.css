@@ -8,7 +8,7 @@ body {
   background-color: white;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 20px;
-  box-shadow: 2px 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 2px 10px 10px rgba(0,0,0,0.05);
   padding: 0.5rem 3rem;
   margin: 1rem;
   vertical-align: middle;
@@ -19,7 +19,7 @@ body {
 }
 
 .block:hover {
-  box-shadow: 5px 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 2px 5px 5px rgba(0,0,0,0.05);
 }
 
 body {

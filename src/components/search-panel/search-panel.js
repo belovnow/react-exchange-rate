@@ -4,7 +4,6 @@ import './search-panel.css';
 
 export default class SearchPanel extends Component {
 
-
     render() {
         return (
             <div className="row center-lg center-sm search-input">

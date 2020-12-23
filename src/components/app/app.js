@@ -28,6 +28,9 @@ export default class App extends Component {
                 <AppHeader currentСurrency={this.state.currentСurrency} />
                 <SearchPanel />
                 <CurrencyButtons changeCurrency={this.changeCurrency} />
+                <div className="cbr-link">
+                    <a href="https://www.cbr-xml-daily.ru/">API для курсов ЦБ РФ</a>
+                </div>
             </div>
         );
     }

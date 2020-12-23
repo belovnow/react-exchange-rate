@@ -18,22 +18,6 @@ export default class СurrencyService {
 
         return this._transformСurrency(res.Valute[name]);
     }
-
-    // getAllСurrency = async () => {
-    //     const res = await this.getResource(this._url);        
-
-    //     let map = new Map();
-        
-    //     const result = Object.entries(res.Valute);
-        
-    //     result.forEach(
-    //         (elemet) => {
-    //             map.set(elemet[0], this._transformСurrency(elemet[1]));
-    //         }
-    //     )
-        
-    //     return map;
-    // }
     
     getAllСurrencyNames = async () => {
         const res = await this.getResource(this._url);
@@ -47,7 +31,6 @@ export default class СurrencyService {
         return arr;
     }
 
-    
     getCurrencyStatistic = async (name) => {
         const res = await this.getResource(this._url);
         

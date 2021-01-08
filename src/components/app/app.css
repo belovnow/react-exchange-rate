@@ -1,12 +1,7 @@
 .app {
+    display: grid;
+    grid-template: minmax(250px, auto) 1fr auto / minmax(50%, auto) 1fr; 
+    margin: 2rem 2rem;
     background-color: white;
-    margin: 2rem 0;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.cbr-link {
-    text-align: center;
-    margin: 1rem;
-    padding-bottom: 1rem;
+    border-radius: 20px;   
 }

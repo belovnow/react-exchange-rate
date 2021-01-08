@@ -1,3 +1,12 @@
 .chart-block .block {
-    padding: 1rem
+    grid-column: 1 / 2;
+}
+
+.chart-block.block {
+    margin: 15px 15px;
+}
+
+.not-loaded {
+    display: grid;
+    place-items: center;
 }

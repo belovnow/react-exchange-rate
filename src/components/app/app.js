@@ -1,37 +1,44 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import AppHeader from '../app-header/app-header';
 import ChartBlock from '../chart-block';
 import CurrencyService from '../../service/currency-service';
-import CurrencyButtons from '../currency-buttons/currency-buttons';
-import SearchPanel from '../search-panel';
+import CurrencyInfo from '../currency-info';
+import CurrencyCardList from '../currency-card-list/currency-card-list';
+import ErrorBoundry from '../error-boundry';
+import Context from '../context';
+import FooterLinks from '../footer-links';
 
 import './app.css';
 
-export default class App extends Component {
+const App = () => {
 
-    currencyService = new CurrencyService();
+    const currencyService = new CurrencyService();
 
-    state = {
-        currentСurrency: null
-    };
- 
-    changeCurrency = (charCode) => {
-        this.setState({
-            currentСurrency: charCode
-        })
-    }
+    // Получение данных из API
+    useEffect(() => {
+        currencyService.getAllСurrency()
+            .then((currency) => {
+                setData(currency);
+            })
+    }, []);
 
-    render() {
-        return (
-            <div className="app">
-                <AppHeader currentСurrency={this.state.currentСurrency} />
-                <SearchPanel />
-                <CurrencyButtons changeCurrency={this.changeCurrency} />
-                <div className="cbr-link">
-                    <a href="https://www.cbr-xml-daily.ru/">API для курсов ЦБ РФ</a>
+    // data хранит массив всех валют
+    const [data, setData] = useState([]);
+    const [context, setContext] = useState(undefined);
+
+    return (
+        <Context.Provider value={[context, setContext]}>
+            <ErrorBoundry>
+                <div className="app">
+                    <CurrencyInfo />
+                    <ChartBlock />
+                    <CurrencyCardList
+                        data={data} />
+                    <FooterLinks />
                 </div>
-            </div>
-        );
-    }
+            </ErrorBoundry>
+        </Context.Provider>
+    );
 }
+
+export default App;

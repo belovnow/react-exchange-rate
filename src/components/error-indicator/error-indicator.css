@@ -1,0 +1,9 @@
+.error-indicator {
+    display: grid;
+    font-size: 32px;
+    text-align: center;
+}
+
+.error-indicator-inner {
+    margin: auto;
+}

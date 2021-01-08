@@ -1,0 +1,28 @@
+.currency-card-item {
+   cursor: pointer;
+   padding: 15px;
+   min-height: 100px;
+   display: grid;
+   grid-template: auto 1fr auto / minmax(150px,auto);
+}
+
+.currency-card-header {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.state-circle {
+   margin-right: 5px;
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   background-color: #ffe5b9; 
+}
+
+.red {
+   background-color: #e5707e; 
+}
+
+.green {
+   background-color: #a3ddcb; 
+}
